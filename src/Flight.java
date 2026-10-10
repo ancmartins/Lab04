@@ -1,28 +1,44 @@
 import java.time.LocalTime;
+import java.util.*;
 
 public abstract class Flight {
 
     private int flightNumber;
     private String destination;
     private LocalTime departureTime;
-    private String boardingGate;
+    private String gate;
 
-    private Airline airline;
-    private Aircraft aircraft;
+    private Airline company;
+    private AirCraft aircraft;
 
-    public Flight(int flightNumber, String destination, LocalTime departureTime, String boardingGate, Airline airline, Aircraft aircraft){
+    private List<Client> passengers;
+    private Map<Client, Boarding> boardings;
+
+    public Flight(int flightNumber, String destination, LocalTime departureTime, String gate, Airline company, AirCraft aircraft){
         this.flightNumber = flightNumber;
         this.destination = destination;
         this.departureTime = departureTime;
-        this.boardingGate = boardingGate;
-        this.airline = airline;
+        this.gate = gate;
+        this.company = company;
         this.aircraft = aircraft;
+
+        passengers = new ArrayList<>();
+        boardings = new HashMap<>();
     }
 
     protected double baseCost() {
-        return airline.getCostPerCustomer() * (1 + airline.getProfitRate());
+        return company.getCostPerClient() * (1 + company.getProfitRate());
     }
 
-    public abstract double calculateCost();
+    public void addPassenger(Client passenger, Boarding boarding){
+        passengers.add(passenger);
+        boardings.put(passenger,boarding);
+    }
+
+    public Airport getBoardingAirport(Client passenger){
+        return boardings.get(passenger).getBoarding();
+    }
+
+    public abstract double passengerCost();
 
 }

@@ -1,12 +1,12 @@
 public class Airline {
 
     private String name;
-    private double costPerCustomer;
+    private double costPerClient;
     private double profitRate;
 
-    public Airline(String name, double costPerCustomer, double profitRate) {
+    public Airline(String name, double costPerClient, double profitRate) {
         this.name = name;
-        this.costPerCustomer = costPerCustomer;
+        this.costPerClient = costPerClient;
         this.profitRate = profitRate;
     }
 
@@ -14,8 +14,8 @@ public class Airline {
         return name;
     }
 
-    public double getCostPerCustomer() {
-        return costPerCustomer;
+    public double getCostPerClient() {
+        return costPerClient;
     }
 
     public double getProfitRate() {

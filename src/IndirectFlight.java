@@ -1,24 +1,21 @@
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class IndirectFlight extends Flight {
 
-    private double additionalFee;
-    private boolean boardingAtTransit;
-    private List<Airport> stopovers = new ArrayList<>();
+    private float additionalFee;
+    private List<Airport> connections;
 
-    public IndirectFlight(int flightNumber, String destination, LocalTime departureTime,
-                          String boardingGate, Airline airline, Aircraft aircraft,
-                          double additionalFee, boolean boardingAtTransit, List<Airport> stopovers){
+    public IndirectFlight(int flightNumber, String destination, LocalTime departureTime, String boardingGate, Airline airline,
+                          AirCraft aircraft, float additionalFee, List<Airport> connections){
+
         super(flightNumber, destination, departureTime, boardingGate, airline, aircraft);
         this.additionalFee = additionalFee;
-        this.boardingAtTransit = boardingAtTransit;
-        this.stopovers = new ArrayList<>(stopovers);
+        this.connections = new ArrayList<>(connections);
     }
 
-    public double calculateCost(){
+    public double passengerCost(){
         return baseCost() + additionalFee;
     }
 
