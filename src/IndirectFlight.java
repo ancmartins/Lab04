@@ -1,8 +1,10 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class IndirectFlight extends Flight {
+
 
     private float additionalFee;
     private List<Airport> connections;
@@ -19,4 +21,11 @@ public class IndirectFlight extends Flight {
         return baseCost() + additionalFee;
     }
 
+    public float getAdditionalFee() {
+        return additionalFee;
+    }
+
+    public Iterator<Airport> getConnections() {
+        return connections.iterator();
+    }
 }

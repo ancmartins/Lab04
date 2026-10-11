@@ -10,6 +10,4 @@ public class DirectFlight extends Flight {
         return baseCost();
     }
 
-
-
 }

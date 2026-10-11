@@ -41,4 +41,19 @@ public abstract class Flight {
 
     public abstract double passengerCost();
 
+    public int getFlightNumber() {
+        return flightNumber;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getGate() {
+        return gate;
+    }
+
+    public Iterator<Client> getPassengers() {
+        return passengers.iterator();
+    }
 }

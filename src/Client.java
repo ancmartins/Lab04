@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Client {
@@ -17,4 +18,6 @@ public class Client {
     public String getName() {
         return name;
     }
+
+    public Iterator<Flight> getFlights(){return flights.iterator();}
 }
